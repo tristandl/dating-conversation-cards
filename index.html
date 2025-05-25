@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <link rel="manifest" href="manifest.json"/>
+  <title>Dating Cards</title>
+  <style>
+    body { font-family: sans-serif; background: #fafafa; padding: 2em; text-align: center; }
+    h1 { font-size: 1.5em; }
+    .btn { margin: 0.5em; padding: 1em 1.5em; background: #333; color: white; border: none; border-radius: 5px; font-size: 1em; }
+    .card { margin-top: 2em; background: #fff; padding: 1.5em; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 1.2em; }
+  </style>
+</head>
+<body>
+  <h1>Dating Conversation Cards</h1>
+  <button class="btn" onclick="showCard('easy')">Easy</button>
+  <button class="btn" onclick="showCard('medium')">Medium</button>
+  <button class="btn" onclick="showCard('hard')">Hard</button>
+  <div class="card" id="cardDisplay">Tap a button to start</div>
+
+  <script>
+    const cards = {
+      easy: [
+        "What was your favorite meal as a kid?",
+        "Coffee or tea &mdash; and how do you take it?",
+        "What&apos;s a movie you can quote start to finish?",
+        "If you could instantly master any hobby, what would it be?",
+        "Beach holiday or mountain escape?",
+        "What&apos;s your go-to karaoke song (even if you&rsquo;d never sing it)?",
+        "What&apos;s the most spontaneous thing you&apos;ve ever done?",
+        "Have you ever had a weird pet?",
+        "What&apos;s your guilty pleasure TV show?",
+        "What&apos;s something you believed as a child that&apos;s funny in hindsight?",
+        "What&apos;s your signature dance move?",
+        "If you could time travel for a week, when and where would you go?",
+        "What app do you open first in the morning?",
+        "Which emoji do you overuse?",
+        "What&apos;s your favorite small joy in the day?",
+        "What&apos;s your dream dinner party guest list (3 people)?",
+        "What&apos;s a little thing that always makes you laugh?"
+      ],
+      medium: [
+        "What&apos;s something you&apos;re proud of that most people don&apos;t know?",
+        "How do you recharge after a stressful day?",
+        "What&apos;s a non-negotiable in your life or values?",
+        "When was the last time you changed your mind about something important?",
+        "What&apos;s your love language &mdash; and do you think it&apos;s changed over time?",
+        "What kind of communication do you appreciate most in relationships?",
+        "How do you usually respond to conflict?",
+        "Do you think you&apos;re more of a thinker or a feeler?",
+        "What do you find most attractive in someone &mdash; beyond the obvious?",
+        "What&apos;s one part of your personality that took time to accept?",
+        "How do you usually spend your weekends &mdash; ideally?",
+        "Do you have any recurring dreams or dream themes?",
+        "What did your last relationship teach you?",
+        "What&apos;s a friendship that changed you?",
+        "How do you define success for yourself now?",
+        "What&apos;s a fear you&apos;ve outgrown?",
+        "How do you show affection &mdash; and how do you like to receive it?"
+      ],
+      hard: [
+        "What do you most fear in a romantic relationship?",
+        "How do you handle loneliness &mdash; and when do you feel it most?",
+        "What&apos;s something you&apos;ve never said out loud but wish someone knew?",
+        "What&apos;s a wound you&apos;re still healing from?",
+        "How do you know when you&apos;re falling for someone?",
+        "What are your relationship patterns &mdash; and do you trust them?",
+        "When did you last cry &mdash; and what triggered it?",
+        "Do you trust easily, or does it take time? Why?",
+        "What part of yourself are you trying to understand better?",
+        "What are you afraid someone might find out about you?",
+        "Who&apos;s someone you&apos;ve hurt &mdash; and do they know?",
+        "What kind of love are you most afraid of not receiving?",
+        "What does &ldquo;emotional safety&rdquo; mean to you?",
+        "Have you ever stayed in a relationship too long? Why?",
+        "What would a truly fulfilling relationship look like for you &mdash; day to day?",
+        "When you imagine the end of your life, what do you hope you&apos;ve shared with someone?"
+      ]
+    };
+
+    function showCard(difficulty) {
+      const list = cards[difficulty];
+      const card = list[Math.floor(Math.random() * list.length)];
+      document.getElementById("cardDisplay").innerHTML = card;
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
